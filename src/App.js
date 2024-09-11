@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  // App.js
+  import React from "react";
+  import "./App.css";
+  import RoutingComponent from "./components/Routes/Routes";
+  import { useMediaQuery } from 'react-responsive';
+  import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+  import Home from "./components/Home/Home";
+  import  Hello  from "./components/Hello/Hello";
 
-export default App;
+  // import About from "./components/about";
+  // import Contact from "./components/contact";
+
+  
+  
+  function App() {
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+   return (
+      <Router>
+        <RoutingComponent />
+        <Routes>
+          <Route path="/" element={<Home />} />
+           <Route path="/hello" element={<Hello />} />
+           
+
+  
+        </Routes>
+    
+        {isMobile}
+      </Router>
+   );
+  }
+  
+  export default App;
