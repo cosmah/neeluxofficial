@@ -175,3 +175,70 @@
   .nav-bar li a:hover span::before {
     right: 0;
   }
+
+/* dropdown */
+li {
+    position: relative;
+    display: inline-block; /* Ensure the list items are inline */
+  }
+  
+  li ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position directly below the parent item */
+    left: 0; /* Align it with the left of the parent */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 1000; /* Ensure the dropdown is on top of other elements */
+  }
+  
+  li:hover ul {
+    display: block;
+    opacity: 0;
+    animation: dropdownFadeIn 0.3s forwards ease-in-out;
+  }
+  
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  li ul li {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+  }
+  
+  li ul li:last-child {
+    border-bottom: none;
+  }
+  
+  li ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  li ul li a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+  }
+  
+  li ul li a:active {
+    background-color: #e0e0e0;
+  }
+  

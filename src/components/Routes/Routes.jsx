@@ -45,14 +45,25 @@ const RoutingComponent = () => {
           </Link>
         </li>
         <li>|</li>
-
         <li>
-          <Link to="/support">
-            <span>Support Team</span>
-          </Link>
+          <div>
+            <Link to="/support">
+              <span>Support Team</span>
+            </Link>
+          </div>
+          <ul>
+            <li>
+              <Link to="/support/route1">
+                <span>Contact Us</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/support/route2">
+                <span>Privacy Policy</span>
+              </Link>
+            </li>
+          </ul>
         </li>
-        <li>|</li>
-        
         
       </ul>
       <div className="hamburger" onClick={toggleMenu}>
