@@ -1,207 +1,72 @@
-.nav-bar {
-    display: flex;
-    /* justify-content: space-between; */
-    /* align-items: center; */
-    background-color: rgb(246, 246, 247);
-    color: #110e0e;
-    padding: 2.0rem;
-    z-index: 1000;
-    position: sticky;
-    top: 0;
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: left;
-  }
-  
-  .logo {
-    width: 300px;
-    height: auto;
-  }
-  
-  .logo img {
-    width: 18.5rem;
-    height: 4.0rem;
-    margin-left: 0.1rem;
-  }
-  
-  .logo-text {
-    text-align: left;
-    margin-left: 0.5rem; /* Adjust as needed */
-    font-size: larger;
-  }
-  
-  .logo-text h4 {
-    color: rgb(253, 12, 12);
-    font-weight: bolder;
-    font-size: 1.0rem;
-  }
-  
-  .logo-text p {
-    font-style: italic;
-    font-size: 0.8rem;
-  }
-  
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  .nav-links {
-    list-style: none;
+  .nav-bar {
     display: flex;
-    gap: 0;
-    margin-left: auto;
+    align-items: center;
+    background-color: #ffffff; /* Changed to white for a cleaner look */
+    color: #333; /* Darker text for better contrast */
+    padding: 1rem 2rem; /* Adjusted padding for a more compact design */
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
   }
   
-  .nav-links li {
+  .logo-container {
     display: flex;
     align-items: center;
   }
   
-  .nav-links li:not(:last-child) {
-    margin-right: 1rem;
+  .logo img {
+    width: 150px; /* Adjusted logo size */
+    height: auto;
+  }
+  
+  .nav-links {
+    list-style: none; /* Remove bullet points */
+    display: flex;
+    margin-left: auto;
+    align-items: center; /* Centered items vertically */
+  }
+  
+  .nav-links li {
+    position: relative;
+    margin: 0 1rem; /* Space between items */
   }
   
   .nav-links li a {
-    color: #d22323;
+    color: #d22323; /* Primary link color */
     text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+    font-size: 1.1rem; /* Slightly smaller font size */
   }
   
   .nav-links li a:hover {
-    color: #080bee;
+    color: #080bee; /* Hover color */
+    transform: scale(1.05); /* Scale effect on hover */
   }
   
-  .nav-bar .close {
-    display: none;
+  .nav-links li ul {
+    display: none; /* Hide dropdown by default */
     position: absolute;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-    color: #070202;
-    font-size: 2rem;
-  }
-  
-  .donate-button {
-    margin-left: 1.4rem;
-  }
-  
-  /* .btn {
-    color: rgb(255, 176, 19);
-    font-size: large;
-    background-color: rgb(185, 185, 242);
-    border: whitesmoke;
-    border-radius: 25px;
-    padding: 0.5rem 2.3rem;
-    cursor: pointer;
-  } */
-  
-  @media (max-width: 768px) {
-    .nav-bar ul {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 70%;
-      height: 100vh;
-      background-color: #fcfcfc;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-      padding: 4rem;
-    }
-  
-    .nav-bar ul.show-menu {
-      transform: translateX(0);
-    }
-  
-    .nav-links {
-      flex-direction: column;
-      margin-left: 0;
-    }
-  
-    .nav-links li {
-      width: 100%;
-      border-bottom: 1px solid #fff;
-    }
-  
-    .nav-bar .hamburger {
-      display: block;
-      cursor: pointer;
-    }
-  
-    .nav-bar .hamburger .bar {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background-color: #fffafa;
-      margin: 5px auto;
-    }
-  
-    .nav-bar .close {
-      display: block;
-      color: whitesmoke;
-    }
-  
-    .nav-bar ul.show-menu .close {
-      display: block;
-    }
-  }
-  
-  .nav-bar li a span {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .nav-bar li a span::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
+    top: 100%;
     left: 0;
-    right: 100%;
-    top: 0;
-    background: #060605;
-    height: 2px;
-    transition-property: right;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-out;
-  }
-  
-  .nav-bar li a:hover span::before {
-    right: 0;
-  }
-
-/* dropdown */
-li {
-    position: relative;
-    display: inline-block; /* Ensure the list items are inline */
-  }
-  
-  li ul {
-    display: none;
-    position: absolute;
-    top: 100%; /* Position directly below the parent item */
-    left: 0; /* Align it with the left of the parent */
-    list-style: none;
-    padding: 0;
-    margin: 0;
     background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border: none; /* Removed border for a cleaner look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 5px; /* Added border-radius for rounded corners */
     min-width: 150px;
-    z-index: 1000; /* Ensure the dropdown is on top of other elements */
+    padding: 0.5rem 0; /* Vertical padding for dropdown items */
+    animation: dropdownFadeIn 0.3s forwards ease-in-out; /* Added dropdown animation */
   }
   
-  li:hover ul {
-    display: block;
-    opacity: 0;
-    animation: dropdownFadeIn 0.3s forwards ease-in-out;
+  .nav-links li:hover ul {
+    display: block; /* Show dropdown on hover */
   }
   
   @keyframes dropdownFadeIn {
@@ -215,30 +80,75 @@ li {
     }
   }
   
-  li ul li {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
+  .nav-links li ul li {
+    padding: 0.5rem 1rem; /* Horizontal padding for dropdown items */
   }
   
-  li ul li:last-child {
-    border-bottom: none;
+  .nav-links li ul li:hover {
+    background-color: #f0f0f0; /* Hover background color for dropdown items */
   }
   
-  li ul li a {
-    display: block;
-    padding: 10px;
+  .nav-links li ul li a {
+    color: #333; /* Dropdown item color */
     text-decoration: none;
-    color: #333;
+    font-size: 0.9rem;
     font-weight: 500;
+    text-transform: capitalize;
+    transition: color 0.3s ease;
   }
   
-  li ul li a:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
+  .nav-links li ul li a:hover {
+    color: #007bff; /* Hover color for dropdown item links */
   }
   
-  li ul li a:active {
-    background-color: #e0e0e0;
+  .hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
   }
   
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Hamburger color */
+    margin: 4px 0;
+  }
+  
+  .close {
+    display: none; /* Hidden by default */
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 70%;
+      height: 100vh;
+      background-color: #fcfcfc;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      padding: 4rem 0; /* Adjust padding for mobile */
+    }
+  
+    .nav-links.show-menu {
+      transform: translateX(0); /* Show menu */
+    }
+  
+    .hamburger {
+      display: flex; /* Show hamburger on mobile */
+    }
+  
+    .close {
+      display: block; /* Show close button on mobile */
+      color: #333; /* Close button color */
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  }

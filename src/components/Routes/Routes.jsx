@@ -13,58 +13,47 @@ const RoutingComponent = () => {
   return (
     <nav className="nav-bar">
       <div className="logo-container">
-        <div className="logo">
-          <Link to="/">
-            <img src={logo} alt="Action to Resilience Uganda" />
-          </Link>
-        </div>
-        <div className="logo-text">
-          {/* <h4>Neelux Qianyiyuan SMC</h4> */}
-          {/* <p>Identify. Transform. Sustain</p> */}
-        </div>
+        <Link to="/" className="logo">
+          <img src={logo} alt="Action to Resilience Uganda" />
+        </Link>
       </div>
       <ul className={`nav-links ${isOpen ? "show-menu" : ""}`}>
         <div className="close" onClick={toggleMenu}>
           X
         </div>
         <li>
-          <Link to="/">
-            <span>Home</span>
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         <li>|</li>
         <li>
-          <Link to="/products">
-            <span>Products</span>
-          </Link>
+          <Link to="/products">Products</Link>
+          <ul>
+            {/* List of Products */}
+            {["All products", "Strip lights", "Flood lights", "LED bulbs", "Filament bulbs", "Wall lamps", "Down lights", "Track lights", "Street lights", "Chandeliers", "Table lamps", "Ceiling lights", "Panel lamps", "Garden lamps", "LED accessories", "LED Tubes"].map((product, index) => (
+              <li key={index}>
+                <Link to={`/products/${product.toLowerCase().replace(/\s+/g, '_')}`}>
+                  {product}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </li>
         <li>|</li>
         <li>
-          <Link to="/about">
-            <span>About Us</span>
-          </Link>
+          <Link to="/about">About Us</Link>
         </li>
         <li>|</li>
         <li>
-          <div>
-            <Link to="/support">
-              <span>Support Team</span>
-            </Link>
-          </div>
+          <Link to="/support">Support Team</Link>
           <ul>
             <li>
-              <Link to="/support/route1">
-                <span>Contact Us</span>
-              </Link>
+              <Link to="/support/contact">Contact Us</Link>
             </li>
             <li>
-              <Link to="/support/route2">
-                <span>Privacy Policy</span>
-              </Link>
+              <Link to="/support/policy">Privacy Policy</Link>
             </li>
           </ul>
         </li>
-        
       </ul>
       <div className="hamburger" onClick={toggleMenu}>
         <div className="bar"></div>
