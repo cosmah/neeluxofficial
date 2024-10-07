@@ -10,6 +10,25 @@ const RoutingComponent = () => {
     setIsOpen(!isOpen);
   };
 
+  const productRoutes = {
+    "All products": "/products",
+    "Strip lights": "/strip",
+    "Flood lights": "/flood",
+    "LED bulbs": "/bulbs",
+    "Filament bulbs": "/bulbs", // Assuming same route as LED bulbs
+    "Wall lamps": "/walls",
+    "Down lights": "/down",
+    "Track lights": "/track",
+    "Street lights": "/streets",
+    "Chandeliers": "/chandeliers",
+    "Table lamps": "/table",
+    "Ceiling lights": "/ceiling",
+    "Panel lamps": "/panels",
+    "Garden lamps": "/garden",
+    "LED accessories": "/accessories", // Assuming a route for accessories
+    "LED Tubes": "/tubes",
+  };
+
   return (
     <nav className="nav-bar">
       <div className="logo-container">
@@ -18,9 +37,6 @@ const RoutingComponent = () => {
         </Link>
       </div>
       <ul className={`nav-links ${isOpen ? "show-menu" : ""}`}>
-        {/* <li className="close" onClick={toggleMenu}>
-          X
-        </li> */}
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -28,29 +44,9 @@ const RoutingComponent = () => {
         <li>
           <span>Products</span>
           <ul style={{ listStyleType: "none" }}>
-            {/* List of Products */}
-            {[
-              "All products",
-              "Strip lights",
-              "Flood lights",
-              "LED bulbs",
-              "Filament bulbs",
-              "Wall lamps",
-              "Down lights",
-              "Track lights",
-              "Street lights",
-              "Chandeliers",
-              "Table lamps",
-              "Ceiling lights",
-              "Panel lamps",
-              "Garden lamps",
-              "LED accessories",
-              "LED Tubes",
-            ].map((product, index) => (
+            {Object.keys(productRoutes).map((product, index) => (
               <li key={index}>
-                <Link
-                  to={`/products/${product.toLowerCase().replace(/\s+/g, "_")}`}
-                >
+                <Link to={productRoutes[product]}>
                   {product}
                 </Link>
               </li>
@@ -66,10 +62,10 @@ const RoutingComponent = () => {
           <span>Support Team</span>
           <ul style={{ listStyleType: "none" }}>
             <li>
-              <Link to="/support/contact">Contact Us</Link>
+              <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <Link to="/support/policy">Privacy Policy</Link>
+              <Link to="/policy">Privacy Policy</Link>
             </li>
           </ul>
         </li>
