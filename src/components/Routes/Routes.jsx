@@ -18,20 +18,39 @@ const RoutingComponent = () => {
         </Link>
       </div>
       <ul className={`nav-links ${isOpen ? "show-menu" : ""}`}>
-        <div className="close" onClick={toggleMenu}>
+        {/* <li className="close" onClick={toggleMenu}>
           X
-        </div>
+        </li> */}
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>|</li>
         <li>
-          <Link to="/products">Products</Link>
-          <ul>
+          <span>Products</span>
+          <ul style={{ listStyleType: "none" }}>
             {/* List of Products */}
-            {["All products", "Strip lights", "Flood lights", "LED bulbs", "Filament bulbs", "Wall lamps", "Down lights", "Track lights", "Street lights", "Chandeliers", "Table lamps", "Ceiling lights", "Panel lamps", "Garden lamps", "LED accessories", "LED Tubes"].map((product, index) => (
+            {[
+              "All products",
+              "Strip lights",
+              "Flood lights",
+              "LED bulbs",
+              "Filament bulbs",
+              "Wall lamps",
+              "Down lights",
+              "Track lights",
+              "Street lights",
+              "Chandeliers",
+              "Table lamps",
+              "Ceiling lights",
+              "Panel lamps",
+              "Garden lamps",
+              "LED accessories",
+              "LED Tubes",
+            ].map((product, index) => (
               <li key={index}>
-                <Link to={`/products/${product.toLowerCase().replace(/\s+/g, '_')}`}>
+                <Link
+                  to={`/products/${product.toLowerCase().replace(/\s+/g, "_")}`}
+                >
                   {product}
                 </Link>
               </li>
@@ -43,9 +62,9 @@ const RoutingComponent = () => {
           <Link to="/about">About Us</Link>
         </li>
         <li>|</li>
-        <li>
-          <Link to="/support">Support Team</Link>
-          <ul>
+        <li className="support-team">
+          <span>Support Team</span>
+          <ul style={{ listStyleType: "none" }}>
             <li>
               <Link to="/support/contact">Contact Us</Link>
             </li>

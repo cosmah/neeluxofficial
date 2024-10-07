@@ -1,154 +1,171 @@
+/* General styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar styles */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff; /* White background */
+  color: #ff0000; /* Red text color */
+  padding: 1rem 2rem;
+  z-index: 1000;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Logo styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px; /* Adjust logo size */
+  height: auto;
+}
+
+/* Navigation links styles */
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.nav-links li {
+  position: relative;
+  margin: 0 1rem;
+  padding: 0.5rem;
+}
+
+.nav-links li a {
+  color: #ff0000; /* Red text color */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.nav-links li a:hover {
+  color: #d40000; /* Darker red on hover */
+  background-color: rgba(255, 0, 0, 0.1); /* Subtle red background on hover */
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for lift effect */
+}
+
+/* General Dropdown menu styles (for all dropdowns except "Support Team") */
+.nav-links li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff; /* White background for dropdowns */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000;
+  border-radius: 5px;
+  width: 400px; /* Expanded width for multi-column */
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for dropdown */
+  gap: 1rem;
+}
+
+.nav-links li:hover > ul,
+.nav-links li:focus-within > ul {
+  display: grid;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Support Team dropdown: specific styling */
+.nav-links li.support-team ul {
+  width: auto; /* Default width */
+  display: block; /* Display list vertically */
+  grid-template-columns: none; /* No columns for this one */
+  padding: 0.5rem;
+}
+
+/* List item styles inside dropdown */
+.nav-links li ul li {
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+.nav-links li ul li a {
+  color: #ff0000; /* Red text color */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-links li ul li a:hover {
+  color: #d40000; /* Darker red on hover */
+  background-color: rgba(255, 0, 0, 0.1); /* Subtle red background on hover */
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for lift effect */
+}
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #ff0000; /* Red bar color */
+  margin: 4px 0;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
   .nav-bar {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff; /* Changed to white for a cleaner look */
-    color: #333; /* Darker text for better contrast */
-    padding: 1rem 2rem; /* Adjusted padding for a more compact design */
-    z-index: 1000;
-    position: sticky;
+    position: fixed;
     top: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
-  }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 150px; /* Adjusted logo size */
-    height: auto;
-  }
-  
-  .nav-links {
-    list-style: none; /* Remove bullet points */
-    display: flex;
-    margin-left: auto;
-    align-items: center; /* Centered items vertically */
-  }
-  
-  .nav-links li {
-    position: relative;
-    margin: 0 1rem; /* Space between items */
-  }
-  
-  .nav-links li a {
-    color: #d22323; /* Primary link color */
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
-    font-size: 1.1rem; /* Slightly smaller font size */
-  }
-  
-  .nav-links li a:hover {
-    color: #080bee; /* Hover color */
-    transform: scale(1.05); /* Scale effect on hover */
-  }
-  
-  .nav-links li ul {
-    display: none; /* Hide dropdown by default */
-    position: absolute;
-    top: 100%;
     left: 0;
-    background-color: #fff;
-    border: none; /* Removed border for a cleaner look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    border-radius: 5px; /* Added border-radius for rounded corners */
-    min-width: 150px;
-    padding: 0.5rem 0; /* Vertical padding for dropdown items */
-    animation: dropdownFadeIn 0.3s forwards ease-in-out; /* Added dropdown animation */
-  }
-  
-  .nav-links li:hover ul {
-    display: block; /* Show dropdown on hover */
-  }
-  
-  @keyframes dropdownFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .nav-links li ul li {
-    padding: 0.5rem 1rem; /* Horizontal padding for dropdown items */
-  }
-  
-  .nav-links li ul li:hover {
-    background-color: #f0f0f0; /* Hover background color for dropdown items */
-  }
-  
-  .nav-links li ul li a {
-    color: #333; /* Dropdown item color */
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: capitalize;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links li ul li a:hover {
-    color: #007bff; /* Hover color for dropdown item links */
-  }
-  
-  .hamburger {
-    display: none; /* Hidden by default */
+    width: 70%;
+    height: 100vh;
+    background-color: #ffffff; /* White background for mobile */
     flex-direction: column;
-    cursor: pointer;
+    justify-content: flex-start;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 4rem 0;
   }
-  
-  .hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333; /* Hamburger color */
-    margin: 4px 0;
+
+  .nav-links.show-menu {
+    transform: translateX(0);
   }
-  
+
+  .hamburger {
+    display: flex;
+  }
+
   .close {
-    display: none; /* Hidden by default */
-    font-size: 2rem;
-    cursor: pointer;
+    display: block;
+    color: #ff0000; /* Red close button color */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
-  
-  @media (max-width: 768px) {
-    .nav-links {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 70%;
-      height: 100vh;
-      background-color: #fcfcfc;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-      padding: 4rem 0; /* Adjust padding for mobile */
-    }
-  
-    .nav-links.show-menu {
-      transform: translateX(0); /* Show menu */
-    }
-  
-    .hamburger {
-      display: flex; /* Show hamburger on mobile */
-    }
-  
-    .close {
-      display: block; /* Show close button on mobile */
-      color: #333; /* Close button color */
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
+
+  .nav-links li ul {
+    grid-template-columns: 1fr; /* One column for mobile */
   }
+
+  .nav-links li.support-team ul {
+    grid-template-columns: none; /* Ensure "Support Team" remains a vertical list */
+  }
+}
