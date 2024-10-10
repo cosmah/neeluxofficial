@@ -1,0 +1,11 @@
+.hello-container {
+    background-image: url("../../assets/img/img/strips/header/bg-2.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Adjust text color for better visibility */
+  }
